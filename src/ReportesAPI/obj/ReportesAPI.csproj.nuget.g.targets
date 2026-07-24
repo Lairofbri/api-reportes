@@ -1,2 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.identitymodel.abstractions\8.20.0\buildTransitive\Microsoft.IdentityModel.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.identitymodel.abstractions\8.20.0\buildTransitive\Microsoft.IdentityModel.Abstractions.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.identitymodel.logging\8.20.0\buildTransitive\Microsoft.IdentityModel.Logging.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.identitymodel.logging\8.20.0\buildTransitive\Microsoft.IdentityModel.Logging.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.identitymodel.tokens\8.20.0\buildTransitive\Microsoft.IdentityModel.Tokens.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.identitymodel.tokens\8.20.0\buildTransitive\Microsoft.IdentityModel.Tokens.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.identitymodel.jsonwebtokens\8.20.0\buildTransitive\Microsoft.IdentityModel.JsonWebTokens.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.identitymodel.jsonwebtokens\8.20.0\buildTransitive\Microsoft.IdentityModel.JsonWebTokens.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.identitymodel.tokens.jwt\8.20.0\buildTransitive\System.IdentityModel.Tokens.Jwt.targets" Condition="Exists('$(NuGetPackageRoot)system.identitymodel.tokens.jwt\8.20.0\buildTransitive\System.IdentityModel.Tokens.Jwt.targets')" />
+  </ImportGroup>
+</Project>

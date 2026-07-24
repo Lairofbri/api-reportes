@@ -8,10 +8,29 @@
     ".NETCoreApp,Version=v10.0": {
       "ReportesAPI/1.0.0": {
         "dependencies": {
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3"
+          "BCrypt.Net-Next": "4.2.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+          "PdfSharpCore": "1.3.67",
+          "System.IdentityModel.Tokens.Jwt": "8.20.0"
         },
         "runtime": {
           "ReportesAPI.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.2.0": {
+        "runtime": {
+          "lib/net10.0/BCrypt-Net-Next.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        }
+      },
+      "Microsoft.Bcl.Cryptography/10.0.2": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Bcl.Cryptography.dll": {
+            "assemblyVersion": "10.0.0.2",
+            "fileVersion": "10.0.225.61305"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore/10.0.4": {
@@ -44,6 +63,48 @@
           }
         }
       },
+      "Microsoft.IdentityModel.Abstractions/8.20.0": {
+        "runtime": {
+          "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll": {
+            "assemblyVersion": "8.20.0.0",
+            "fileVersion": "8.20.0.26202"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/8.20.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "8.20.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "8.20.0.0",
+            "fileVersion": "8.20.0.26202"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Logging/8.20.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "8.20.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.IdentityModel.Logging.dll": {
+            "assemblyVersion": "8.20.0.0",
+            "fileVersion": "8.20.0.26202"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/8.20.0": {
+        "dependencies": {
+          "Microsoft.Bcl.Cryptography": "10.0.2",
+          "Microsoft.IdentityModel.Logging": "8.20.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.IdentityModel.Tokens.dll": {
+            "assemblyVersion": "8.20.0.0",
+            "fileVersion": "8.20.0.26202"
+          }
+        }
+      },
       "Npgsql/10.0.3": {
         "runtime": {
           "lib/net10.0/Npgsql.dll": {
@@ -64,6 +125,60 @@
             "fileVersion": "10.0.3.0"
           }
         }
+      },
+      "PdfSharpCore/1.3.67": {
+        "dependencies": {
+          "SharpZipLib": "1.4.2",
+          "SixLabors.Fonts": "1.0.0-beta17",
+          "SixLabors.ImageSharp": "1.0.4"
+        },
+        "runtime": {
+          "lib/net8.0/PdfSharpCore.dll": {
+            "assemblyVersion": "1.3.67.0",
+            "fileVersion": "1.3.67.0"
+          }
+        },
+        "resources": {
+          "lib/net8.0/de/PdfSharpCore.resources.dll": {
+            "locale": "de"
+          }
+        }
+      },
+      "SharpZipLib/1.4.2": {
+        "runtime": {
+          "lib/net6.0/ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "1.4.2.13",
+            "fileVersion": "1.4.2.13"
+          }
+        }
+      },
+      "SixLabors.Fonts/1.0.0-beta17": {
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.Fonts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/1.0.4": {
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/8.20.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "8.20.0",
+          "Microsoft.IdentityModel.Tokens": "8.20.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "8.20.0.0",
+            "fileVersion": "8.20.0.26202"
+          }
+        }
       }
     }
   },
@@ -72,6 +187,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gwLD2KfCuwQesP17aVh4h6lpiMPEVt5Lbpndo0ej903hNUUTtyxt3ARdDjmuydBRTAUICc7OVKVbaOvc6SQYXA==",
+      "path": "bcrypt.net-next/4.2.0",
+      "hashPath": "bcrypt.net-next.4.2.0.nupkg.sha512"
+    },
+    "Microsoft.Bcl.Cryptography/10.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LG9Yll3B5aNpxv0+D47g6LiOiKBIlodhcHdQwcYzo8VeexFLGqx5ymetmA2aBRyo9cCcWsQWrFsdbsr8LvmWDw==",
+      "path": "microsoft.bcl.cryptography/10.0.2",
+      "hashPath": "microsoft.bcl.cryptography.10.0.2.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/10.0.4": {
       "type": "package",
@@ -94,6 +223,34 @@
       "path": "microsoft.entityframeworkcore.relational/10.0.4",
       "hashPath": "microsoft.entityframeworkcore.relational.10.0.4.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.Abstractions/8.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2YrBraNn8E5lLXamv0ccIM6PtGrv4GA46lNNIzw3d3M3CJ177iHiSXKEjUjy+s9aKsodjFTi4i8h5gGG12wiAA==",
+      "path": "microsoft.identitymodel.abstractions/8.20.0",
+      "hashPath": "microsoft.identitymodel.abstractions.8.20.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/8.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CZn9vwacbFkFEsYQ09zD0UQo4Ti14xmLbYzak34KODqvd3vFx5d7Suh+SdnWWQZ0hkoWaHk/XYdJrRWBKn2I3g==",
+      "path": "microsoft.identitymodel.jsonwebtokens/8.20.0",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.8.20.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Logging/8.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lSFZ7xwtaZtBvsXHJacUdWteZLrmRw6KCAfN0mWCqQ29DRzewIWIbt54lQOtooa1VQZevnw6ooy64FfWOUliIQ==",
+      "path": "microsoft.identitymodel.logging/8.20.0",
+      "hashPath": "microsoft.identitymodel.logging.8.20.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Tokens/8.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wjnhcOJNRX7mGEhTfKNsmEB0q3eHOadLP4vsoyj4e5GH0uVBRbulTvUsGGQYi6nMAOj+o6AF36naEpGpnP5EWw==",
+      "path": "microsoft.identitymodel.tokens/8.20.0",
+      "hashPath": "microsoft.identitymodel.tokens.8.20.0.nupkg.sha512"
+    },
     "Npgsql/10.0.3": {
       "type": "package",
       "serviceable": true,
@@ -107,6 +264,41 @@
       "sha512": "sha512-IPGrrZnRkuW7OlHDhUESZz4G5DLkW7Nej/O3Cx+0iTsgyU5XJxBgpsvTHLloo3WWuAKKbDHXBvWPVkX1deRh1Q==",
       "path": "npgsql.entityframeworkcore.postgresql/10.0.3",
       "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.3.nupkg.sha512"
+    },
+    "PdfSharpCore/1.3.67": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6Cvj9nX6RwIJFIQC8eJFCYYUu9Qa2t9LWh4i0SXFi3hqkX/ssUGKfzp+9JZZXbkp0lHeeH/9UYFHelLqIusPrQ==",
+      "path": "pdfsharpcore/1.3.67",
+      "hashPath": "pdfsharpcore.1.3.67.nupkg.sha512"
+    },
+    "SharpZipLib/1.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yjj+3zgz8zgXpiiC3ZdF/iyTBbz2fFvMxZFEBPUcwZjIvXOf37Ylm+K58hqMfIBt5JgU/Z2uoUS67JmTLe973A==",
+      "path": "sharpziplib/1.4.2",
+      "hashPath": "sharpziplib.1.4.2.nupkg.sha512"
+    },
+    "SixLabors.Fonts/1.0.0-beta17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qubgVovAoSR7vyv9tJ68gSzRIPWz7HBjTM9rwAaLjpcJ6T50arnX+GHAZcC0r2mVagyRMknCNda3DGoe8StUUQ==",
+      "path": "sixlabors.fonts/1.0.0-beta17",
+      "hashPath": "sixlabors.fonts.1.0.0-beta17.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H2rPiEr2ddBOltOuqRYhpLBAsQXDAhbzMMhhuksnBG2oefup1MXMchALe7yYkKJksNbtxbZHKeM6dn/68I75qw==",
+      "path": "sixlabors.imagesharp/1.0.4",
+      "hashPath": "sixlabors.imagesharp.1.0.4.nupkg.sha512"
+    },
+    "System.IdentityModel.Tokens.Jwt/8.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ko0lxRtjOAczLXf5Ga3sQD6s6zW/7QgBUjTU3dVh64c7Xfruq3OiHZGAh/+bJjkd7xxUC1vExup0GuXKUQQqRw==",
+      "path": "system.identitymodel.tokens.jwt/8.20.0",
+      "hashPath": "system.identitymodel.tokens.jwt.8.20.0.nupkg.sha512"
     }
   }
 }
