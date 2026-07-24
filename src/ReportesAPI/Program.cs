@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ReportesAPI.Compartido.MultiTenant;
 using ReportesAPI.Datos;
 using ReportesAPI.Reportes.Pos.Ventas;
 using ReportesAPI.Reportes.Pos.Productos;
@@ -19,7 +20,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connPos = builder.Configuration.GetConnectionString("PosDb")!;
 var connDte = builder.Configuration.GetConnectionString("DteDb")!;
-var connReports = builder.Configuration.GetConnectionString("ReportsDb")!;
 
 builder.Services.AddDbContext<PosDbContext>(o =>
     o.UseNpgsql(connPos).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
@@ -27,20 +27,35 @@ builder.Services.AddDbContext<PosDbContext>(o =>
 builder.Services.AddDbContext<DteDbContext>(o =>
     o.UseNpgsql(connDte).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
-builder.Services.AddDbContext<ReportesDbContext>(o =>
-    o.UseNpgsql(connReports));
-
 builder.Services.AddCors(o =>
 {
-    o.AddDefaultPolicy(p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+    o.AddDefaultPolicy(p => p
+        .WithOrigins(
+            "http://localhost:5173",
+            "http://localhost:5174",
+            "http://localhost:3000",
+            "http://localhost:4000",
+            "http://localhost:5141",
+            "http://localhost:3001")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials());
 });
+
+builder.Services.AddScoped<TenantContext>();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
 app.UseCors();
-app.UseMiddleware<ReportesAPI.Compartido.Auth.ApiKeyMiddleware>();
+app.UseMiddleware<ReportesAPI.Compartido.Auth.DualAuthMiddleware>();
 
 app.MapGet("/health", () => Results.Ok(new { estado = "ok", timestamp = DateTime.UtcNow }));
+
+// Auth endpoints
+ReportesAPI.Features.Auth.LoginEndpoint.Map(app, connPos);
+ReportesAPI.Features.Auth.RefreshEndpoint.Map(app, connPos);
+ReportesAPI.Features.Auth.LogoutEndpoint.Map(app, connPos);
 
 // POS
 VentasPorPeriodoEndpoint.Map(app);
