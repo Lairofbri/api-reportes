@@ -9,6 +9,7 @@ using ReportesAPI.Reportes.Pos.Caja;
 using ReportesAPI.Reportes.Pos.Cocina;
 using ReportesAPI.Reportes.Pos.Sucursales;
 using ReportesAPI.Reportes.Pos.Staff;
+using ReportesAPI.Reportes.Pos.Costos;
 using ReportesAPI.Reportes.Dte.Emisiones;
 using ReportesAPI.Reportes.Dte.Establecimientos;
 using ReportesAPI.Reportes.Dte.Anulaciones;
@@ -75,6 +76,12 @@ CuadreCajaEndpoint.Map(app);
 TiempoPreparacionEndpoint.Map(app);
 ComparativaSucursalesEndpoint.Map(app);
 DesempenoMeseroEndpoint.Map(app);
+
+// Costos
+CostoPorProductoEndpoint.Map(app);
+CostoPorCategoriaEndpoint.Map(app);
+MargenEvolucionEndpoint.Map(app);
+InventarioValorizadoEndpoint.Map(app);
 
 // DTE
 DtePorPeriodoEndpoint.Map(app);
