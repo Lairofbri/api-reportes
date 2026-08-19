@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReportesAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f25152f0605437134f19e7f40ae28e46be68325")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9924ba41a6796791b9b22f65ef04c72d12849ce9")]
+>>>>>>> develop
 [assembly: System.Reflection.AssemblyProductAttribute("ReportesAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReportesAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
