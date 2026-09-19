@@ -22,6 +22,24 @@ var builder = WebApplication.CreateBuilder(args);
 var connPos = builder.Configuration.GetConnectionString("PosDb")!;
 var connDte = builder.Configuration.GetConnectionString("DteDb")!;
 
+var configuredCorsOrigins = builder.Configuration["CORS_ORIGINS"]?
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+var corsOrigins = configuredCorsOrigins is { Length: > 0 }
+    ? configuredCorsOrigins
+    : builder.Environment.IsDevelopment()
+        ? new[]
+        {
+            "http://localhost:5173",
+            "http://localhost:5174",
+            "http://localhost:3000",
+            "http://localhost:4000",
+            "http://localhost:5141",
+            "http://localhost:3001",
+        }
+        : throw new InvalidOperationException(
+            "CORS_ORIGINS es obligatoria fuera de Development y debe contener orígenes separados por comas.");
+
 builder.Services.AddDbContext<PosDbContext>(o =>
     o.UseNpgsql(connPos).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
@@ -31,13 +49,7 @@ builder.Services.AddDbContext<DteDbContext>(o =>
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(p => p
-        .WithOrigins(
-            "http://localhost:5173",
-            "http://localhost:5174",
-            "http://localhost:3000",
-            "http://localhost:4000",
-            "http://localhost:5141",
-            "http://localhost:3001")
+        .WithOrigins(corsOrigins)
         .AllowAnyHeader()
         .AllowAnyMethod()
         .AllowCredentials());
